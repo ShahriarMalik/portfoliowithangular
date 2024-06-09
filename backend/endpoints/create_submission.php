@@ -1,6 +1,10 @@
 <?php
 include('../config/db.php');
 
+header('Content-Type: application/json');
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Content-Type');
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize and validate inputs
     $name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8');
