@@ -1,5 +1,7 @@
 {
   "require": {
-    "vlucas/phpdotenv": "^5.3"
+    "vlucas/phpdotenv": "^5.3",
+    "ext-pgsql": "*",
+    "ext-json": "*"
   }
 }
