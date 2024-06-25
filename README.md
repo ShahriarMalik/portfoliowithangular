@@ -57,15 +57,11 @@ This repository contains the frontend and backend for the portfolio projects. Th
 
    ```env
    DB_HOST=your-ec2-public-ip
-   DB_PORT=5432
+   DB_PORT=your-port
    DB_NAME=postgres
-   DB_USER=admin
+   DB_USER=yourdbusername
    DB_PASSWORD=yourpassword
    ```
-
-### Frontend
-
-1. Configure the API endpoint in your Angular environment files (e.g., `src/environments/environment.ts`).
 
 ## API Endpoints
 
@@ -157,7 +153,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 2. **CloudFront Distribution**:
    - Create a CloudFront distribution for better performance and security.
    - Use the S3 website endpoint as the origin for the CloudFront distribution.
-
 3. **CORS Configuration**:
    - Update your PHP backend to restrict API access to requests coming from your S3 or CloudFront URL.
 
