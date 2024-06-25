@@ -1,0 +1,86 @@
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem;
+}
+
+.mat-mdc-card-header {
+  justify-content: center;
+}
+.title {
+  color: var(--primary-color);
+}
+
+.contact-card {
+  width: 100%;
+  max-width: 37.5rem;
+  margin: 1.25rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  margin-bottom: 1.25rem;
+}
+
+button {
+  align-self: flex-end;
+}
+.contact-card,
+.success-card {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px;
+}
+
+.success-message {
+  color: green;
+  font-weight: bold;
+  padding: 0 0.5rem;
+}
+.error-message {
+  color: red;
+  font-weight: bold;
+  padding: 0 0.5rem;
+}
+
+mat-card-header mat-icon {
+  font-size: 1.5rem;
+  /* margin-right: 1rem; */
+}
+
+.success-card mat-card-header mat-icon {
+  color: green;
+}
+
+.error-card mat-card-header mat-icon {
+  color: red;
+}
+
+/* Media Queries */
+@media (min-width: 320px) and (max-width: 480px) {
+  .success-message,
+  .error-message {
+    padding: 0px;
+  }
+
+  mat-card-header mat-icon {
+    display: none;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  /* Large Mobile */
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Tablet */
+}
+
+@media (min-width: 992px) {
+  /* Desktop */
+}

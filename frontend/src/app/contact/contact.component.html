@@ -1,0 +1,123 @@
+<div class="contact-container">
+  <mat-card class="contact-card" *ngIf="!submissionSuccess && !submissionError">
+    <mat-card-header>
+      <h2 class="title">Get in Touch</h2>
+    </mat-card-header>
+    <mat-card-content>
+      <form
+        [formGroup]="contactForm"
+        (ngSubmit)="onSubmit()"
+        class="contact-form"
+      >
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="name"
+            placeholder="Your Name"
+            required
+          />
+          <mat-error
+            data-test="name-error"
+            *ngIf="
+              contactForm.get('name')?.hasError('required') &&
+              (contactForm.get('name')?.dirty ||
+                contactForm.get('name')?.touched)
+            "
+          >
+            Name is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            matInput
+            formControlName="email"
+            placeholder="Your Email"
+            required
+          />
+          <mat-error
+            data-test="email-required-error"
+            *ngIf="
+              contactForm.get('email')?.hasError('required') &&
+              (contactForm.get('email')?.dirty ||
+                contactForm.get('email')?.touched)
+            "
+          >
+            Email is required
+          </mat-error>
+          <mat-error
+            data-test="email-invalid-error"
+            *ngIf="
+              contactForm.get('email')?.hasError('email') &&
+              (contactForm.get('email')?.dirty ||
+                contactForm.get('email')?.touched)
+            "
+          >
+            Enter a valid email
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Message</mat-label>
+          <textarea
+            matInput
+            formControlName="message"
+            placeholder="Your Message"
+            required
+          ></textarea>
+          <mat-error
+            data-test="message-error"
+            *ngIf="
+              contactForm.get('message')?.hasError('required') &&
+              (contactForm.get('message')?.dirty ||
+                contactForm.get('message')?.touched)
+            "
+          >
+            Message is required
+          </mat-error>
+        </mat-form-field>
+
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          [disabled]="contactForm.invalid"
+        >
+          Send Message
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <mat-card *ngIf="submissionSuccess" class="success-card">
+    <mat-card-header>
+      <mat-icon>check_circle</mat-icon>
+      <h3 class="success-message">{{ successMessage }}</h3>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        Thank you for getting in touch with us. We will respond to your message
+        as soon as possible.
+      </p>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="submissionSuccess = false"
+      >
+        Send Another Message
+      </button>
+    </mat-card-content>
+  </mat-card>
+  <mat-card *ngIf="submissionError" class="error-card">
+    <mat-card-header>
+      <mat-icon>error</mat-icon>
+      <h3 class="error-message">{{ errorMessage }}</h3>
+    </mat-card-header>
+    <mat-card-content>
+      <p>There was an error sending your message. Please try again later.</p>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,160 @@
+.about-container {
+  padding: var(--small-padding);
+}
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-size);
+}
+
+.about-card,
+.qualification-card,
+.experience-card,
+.certification-card,
+.toastmasters-card {
+  margin-bottom: var(--gap-size);
+}
+
+.title-icon {
+  display: flex;
+  align-items: center;
+  margin-top: var(--gap-size);
+  font-size: 1.5rem; /* 24px */
+  color: var(--primary-color);
+}
+
+.title-icon mat-icon {
+  margin-left: 0.5rem; /* 8px */
+  color: var(--secondary-color);
+}
+
+.mat-list-item {
+  display: flex;
+  align-items: flex-start;
+  font-size: 1em; /* 16px */
+  line-height: 1.5;
+  padding: 0.3125rem 0; /* 5px 0 */
+}
+
+mat-icon[matListItemIcon] {
+  margin-right: 0.5rem; /* 8px */
+  color: var(--secondary-color);
+  font-size: 1em; /* 16px */
+  padding-top: 0.7rem;
+}
+
+.mat-expansion-panel-header {
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.mat-expansion-panel-header .mat-panel-title,
+.mat-expansion-panel-header .mat-panel-description {
+  font-size: 1em; /* 16px */
+}
+
+.year-inline {
+  display: none;
+}
+
+.year {
+  display: block;
+}
+
+.course-section,
+.responsibilty-section,
+.certification-section {
+  margin-top: var(--gap-size);
+}
+
+.course-header,
+.responsibilty-header,
+.certification-header {
+  font-size: 1.125rem; /* 18px */
+  color: #333;
+  margin-bottom: 0.625rem; /* 10px */
+}
+
+.course-list,
+.responsibilty-list,
+.certification-list {
+  padding: 0;
+  list-style: none;
+}
+
+.course-list li,
+.responsibilty-list li,
+.certification-list li {
+  position: relative;
+  margin-bottom: 0.5rem; /* 8px */
+  padding-left: 1.875rem; /* 30px */
+  line-height: 1.6;
+  font-size: var(--font-size-base);
+}
+
+.course-list li .course-icon,
+.responsibilty-list li .responsibilty-icon,
+.certification-list li .certification-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--primary-color);
+  font-size: var(--font-size-base);
+}
+
+mat-list-item .mat-list-text {
+  white-space: normal;
+  word-break: break-word;
+}
+
+.toastmasters-link {
+  padding: 0px;
+  text-decoration: none;
+}
+/* Media Queries */
+@media (min-width: 320px) and (max-width: 480px) {
+  /* Small Mobile */
+  .about-container {
+    padding: 1rem;
+  }
+
+  .title-icon mat-icon {
+    display: none;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  /* Large Mobile */
+  .about-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Tablet */
+  .year-inline {
+    display: inline;
+    margin-left: 0.5rem;
+  }
+  .year {
+    display: none;
+  }
+  .course-section {
+    margin-top: var(--large-padding);
+  }
+}
+
+@media (min-width: 992px) {
+  /* Laptop/Desktop */
+  /* .about-container {
+    padding: var(--large-padding);
+  } */
+  .year-inline {
+    display: inline;
+    margin-left: 1rem;
+  }
+  .year {
+    display: none;
+  }
+}

@@ -1,0 +1,78 @@
+<div class="projects-container">
+  <mat-card class="projects-card">
+    <mat-card-title class="title">My Projects</mat-card-title>
+    <mat-card-content>
+      <section
+        class="project-section"
+        *ngFor="let category of projectCategories"
+      >
+        <h2 class="project-category-title">{{ category.title }}</h2>
+        <mat-accordion>
+          <mat-expansion-panel
+            *ngFor="let project of category.projects"
+            class="project-panel"
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-title class="panel-header">{{
+                project.name
+              }}</mat-panel-title>
+              <mat-panel-description>
+                Tech Stack: {{ project.technologies }}</mat-panel-description
+              >
+            </mat-expansion-panel-header>
+            <div class="project-details">
+              <div class="project-video" *ngIf="project.video">
+                <iframe
+                  [src]="project.video | safeUrl"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="project-overview">
+                <p>{{ project.overview }}</p>
+                <div
+                  *ngIf="project.keyFeatures && project.keyFeatures.length > 1"
+                >
+                  <strong class="section-header">Key Features:</strong>
+                  <ul class="features-list">
+                    <li
+                      *ngFor="let feature of project.keyFeatures"
+                      class="features-item"
+                    >
+                      <mat-icon class="features-icon" matListItemIcon
+                        >check_circle</mat-icon
+                      >
+                      <span>{{ feature }}</span>
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  *ngIf="
+                    project.projectHighlights &&
+                    project.projectHighlights.length > 1
+                  "
+                >
+                  <strong class="section-header">Project Highlights:</strong>
+                  <ul class="features-list">
+                    <li
+                      *ngFor="let highlight of project.projectHighlights"
+                      class="features-item"
+                    >
+                      <mat-icon class="features-icon" matListItemIcon
+                        >star</mat-icon
+                      >
+                      <span>{{ highlight }}</span>
+                    </li>
+                  </ul>
+                </div>
+                <a [href]="project.repo" target="_blank" class="project-link">
+                  <button mat-raised-button color="primary">View Code</button>
+                </a>
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,13 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+:root {
+  --primary-color: #3f51b5;
+  --secondary-color: #f50057;
+  --font-size-base: 0.875rem; /* 16px */
+  --gap-size: 1.25rem; /* 20px */
+  --small-padding: 1.25rem; /* 20px */
+  --large-padding: 3rem; /* 48px */
+}

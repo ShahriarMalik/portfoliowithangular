@@ -1,0 +1,159 @@
+<div class="home-container">
+  <!-- Introduction Area -->
+  <section class="introduction-area">
+    <mat-card>
+      <mat-card-title class="title">Welcome to My Portfolio</mat-card-title>
+      <mat-card-content>
+        <p>
+          Moin! I'm Shahriar Malik, a passionate software developer based in
+          Hamburg, Germany. Welcome to my personal portfolio where you can learn
+          more about my journey, skills, and projects.
+        </p>
+        <p>
+          My journey into software development began during my undergraduate
+          studies in Electrical and Electronic Engineering at Leading
+          University, Bangladesh. While pursuing my bachelor's degree, I
+          developed a strong interest in coding and software development, which
+          led me to choose a master's program focused on computer science and
+          IT.
+        </p>
+        <p>
+          I hold a Master of Science in Information and Communication Systems,
+          specializing in Secure and Dependable IT Systems, from Technische
+          Universität Hamburg. During my master's, I completed courses such as
+          Design and Implementation of Software Systems, Software Verification,
+          Software Security, Communication Networks, Machine Learning and Data
+          Mining, and Traffic Engineering.
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  <section class="skills-area">
+    <mat-card>
+      <mat-card-title class="title">
+        Technical Skills
+        <mat-icon matTooltip="See below for skill level details"
+          >info_outline</mat-icon
+        >
+      </mat-card-title>
+      <mat-card-content>
+        <div class="skills-group" *ngFor="let group of skills">
+          <h3>
+            <strong>{{ group.category }}</strong>
+          </h3>
+          <div class="skills-list">
+            <mat-chip *ngFor="let skill of group.skills">
+              {{ skill.name }} ({{ skill.level }})
+            </mat-chip>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="skills-legend-card">
+      <mat-card-title class="title">Skill Levels</mat-card-title>
+      <mat-card-content>
+        <p>
+          <strong>Expert:</strong> Profound knowledge and extensive experience.
+        </p>
+        <p>
+          <strong>Proficient:</strong> Solid understanding and practical
+          application.
+        </p>
+        <p>
+          <strong>Intermediate:</strong> Good working knowledge with room for
+          improvement.
+        </p>
+        <p>
+          <strong>Beginner:</strong> Basic understanding, needs further
+          development.
+        </p>
+        <p>
+          <strong>Prior Experience:</strong> Familiarity, but not recently
+          practiced.
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  <!-- Project Area with Expansion Panels -->
+  <section class="project-area">
+    <mat-card>
+      <mat-card-title class="title">Recent Projects</mat-card-title>
+      <mat-card-content>
+        <mat-accordion>
+          <mat-expansion-panel
+            *ngFor="let project of projects"
+            class="project-panel"
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-title class="panel-header">{{
+                project.name
+              }}</mat-panel-title>
+              <mat-panel-description
+                >Tech Stack: {{ project.technologies }}</mat-panel-description
+              >
+            </mat-expansion-panel-header>
+
+            <div class="project-details">
+              <div class="project-video" *ngIf="project.video">
+                <iframe
+                  [src]="project.video | safeUrl"
+                  frameborder="0"
+                  allowfullscreen
+                  class="responsive-iframe"
+                ></iframe>
+              </div>
+              <div class="project-overview">
+                <p>{{ project.overview }}</p>
+                <div
+                  *ngIf="project.keyFeatures && project.keyFeatures.length > 1"
+                >
+                  <strong class="section-header">Key Features:</strong>
+                  <ul class="features-list">
+                    <li
+                      *ngFor="let feature of project.keyFeatures"
+                      class="features-item"
+                    >
+                      <mat-icon class="features-icon" matListItemIcon
+                        >check_circle</mat-icon
+                      >
+                      <span>{{ feature }}</span>
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  *ngIf="
+                    project.projectHighlights &&
+                    project.projectHighlights.length > 1
+                  "
+                >
+                  <strong class="section-header">Project Highlights:</strong>
+                  <ul class="features-list">
+                    <li
+                      *ngFor="let highlight of project.projectHighlights"
+                      class="features-item"
+                    >
+                      <mat-icon class="features-icon" matListItemIcon
+                        >star</mat-icon
+                      >
+                      <span>{{ highlight }}</span>
+                    </li>
+                  </ul>
+                </div>
+                <a [href]="project.repo" target="_blank" class="project-link">
+                  <button mat-raised-button color="primary">View Code</button>
+                </a>
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" routerLink="/projects">
+          View All Projects
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </section>
+</div>
