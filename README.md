@@ -1,4 +1,3 @@
-```markdown
 # Portfolio Projects
 
 This repository contains the frontend and backend for the portfolio projects. The frontend is built with Angular, and the backend is built with PHP and PostgreSQL.
